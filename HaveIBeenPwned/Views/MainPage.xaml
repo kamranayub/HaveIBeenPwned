@@ -12,10 +12,14 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.BackgroundColor="#3a9ac4"
+    shell:SystemTray.ForegroundColor="White"
     shell:SystemTray.IsVisible="True">
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Minimized" Opacity="0.8">
+        <shell:ApplicationBar Mode="Minimized"
+                              ForegroundColor="White"
+                              BackgroundColor="#2b5766">
             <shell:ApplicationBar.MenuItems>
                 <micro:AppBarMenuItem
                     Message="ViewAbout"
@@ -31,19 +35,22 @@
     </phone:PhoneApplicationPage.ApplicationBar>
     
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="#3488ad">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,28" Background="#3a9ac4">
             <TextBlock 
                 Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"                 
-                Style="{StaticResource PhoneTextGroupHeaderStyle}" 
-                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
-                Margin="12,0"/>            
+                Style="{StaticResource PhoneTextBlockBase}"
+                FontSize="{StaticResource PhoneFontSizeLarge}"
+                FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                FontWeight="Bold"
+                Foreground="White"
+                Margin="24,17,12,12"/>            
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -51,11 +58,12 @@
             <StackPanel>                
                 
                 <TextBlock Style="{StaticResource PhoneTextBlockBase}"
-                           Foreground="{StaticResource PhoneSubtleBrush}"
+                           Foreground="#124961"
                            Text="{Binding Path=LocalizedResources.MainPageEmailLabel, Source={StaticResource LocalizedStrings}}">                    
                 </TextBlock>
                 
-                <TextBox x:Name="Email" InputScope="EmailSmtpAddress" />
+                <TextBox x:Name="Email"
+                         InputScope="EmailSmtpAddress" />
 
                 <TextBlock Margin="{StaticResource PhoneMargin}"
                            Foreground="#FFB82626"
@@ -63,10 +71,14 @@
                            Visibility="{Binding Error, Converter={StaticResource ObjectToVisibilityConverter}}"
                            Text="{Binding Error}"/>
                 
-                <Button x:Name="Check" Content="{Binding Path=LocalizedResources.MainPageCheckButtonText, Source={StaticResource LocalizedStrings}}"/>
+                <Button x:Name="Check"
+                        Background="#2b5766"
+                        Foreground="White"
+                        BorderBrush="White"
+                        Content="{Binding Path=LocalizedResources.MainPageCheckButtonText, Source={StaticResource LocalizedStrings}}"/>
                 
                 <!-- Responses -->
-                <!--<ProgressBar 
+                <ProgressBar 
                     Visibility="{Binding IsFetching, Converter={StaticResource BooleanToVisibilityConverter}}"
                     IsIndeterminate="True"
                     Margin="24"/>
@@ -75,7 +87,7 @@
                     TextWrapping="Wrap"
                     Style="{StaticResource PhoneTextTitle2Style}"
                     Foreground="{StaticResource PhoneSubtleBrush}"
-                    Margin="{StaticResource PhoneMargin}">Check if you have an account that has been compromised in a data breach</TextBlock>-->
+                    Margin="{StaticResource PhoneMargin}">Check if you have an account that has been compromised in a data breach</TextBlock>
 
                 <Border Visibility="{Binding IsPwned, Converter={StaticResource BooleanToVisibilityConverter}}" 
                         Background="#FFB82626" 
@@ -84,16 +96,19 @@
                     <StackPanel Margin="24">
                         <TextBlock
                             TextWrapping="Wrap"
+                            Foreground="White"
                             FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}"
                             FontFamily="{StaticResource PhoneFontFamilySemiBold}"
                             Text="{Binding Path=LocalizedResources.ResponsePwnedHeader, Source={StaticResource LocalizedStrings}}"/>
                         <TextBlock
-                            TextWrapping="Wrap"                           
+                            TextWrapping="Wrap" 
+                            Foreground="White"
                             FontFamily="{StaticResource PhoneFontFamilySemiLight}"
                             FontSize="{StaticResource PhoneFontSizeLarge}"
                             Text="{Binding Path=LocalizedResources.ResponsePwnedBody, Source={StaticResource LocalizedStrings}}"/>
                         <TextBlock 
-                            TextWrapping="Wrap"                           
+                            TextWrapping="Wrap"   
+                            Foreground="White"
                             FontFamily="{StaticResource PhoneFontFamilySemiLight}"
                             FontSize="{StaticResource PhoneFontSizeExtraLarge}"
                             Margin="0,24,0,0"
@@ -111,11 +126,13 @@
                 <Border Visibility="{Binding IsSafe, Converter={StaticResource BooleanToVisibilityConverter}}" Background="#FF20953B" Margin="{StaticResource PhoneMargin}">
                     <StackPanel Margin="24">
                         <TextBlock
+                            Foreground="White"
                             TextWrapping="Wrap"
                             FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}"
                             FontFamily="{StaticResource PhoneFontFamilySemiBold}"
                             Text="{Binding Path=LocalizedResources.ResponseSafeHeader, Source={StaticResource LocalizedStrings}}"/>
                         <TextBlock
+                           Foreground="White"
                            TextWrapping="Wrap"                           
                            FontFamily="{StaticResource PhoneFontFamilySemiLight}"
                            FontSize="{StaticResource PhoneFontSizeExtraLarge}"
