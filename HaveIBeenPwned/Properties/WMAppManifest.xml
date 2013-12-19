@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{591ae795-7b1e-4930-a1a1-b4ba4c47f13f}" Title="Have I Been Pwned?" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Kamran Ayub" Description="Check if you have an account that has been compromised in a data breach" Publisher="Kamran Ayub" PublisherID="{f2193383-7f61-4cf6-a2c8-fa1e90d37dde}">
+  <App xmlns="" ProductID="{591ae795-7b1e-4930-a1a1-b4ba4c47f13f}" Title="Have I Been Pwned?" RuntimeType="Silverlight" Version="1.0.1.0" Genre="apps.normal" Author="Kamran Ayub" Description="Check if you have an account that has been compromised in a data breach" Publisher="Kamran Ayub" PublisherID="{f2193383-7f61-4cf6-a2c8-fa1e90d37dde}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
