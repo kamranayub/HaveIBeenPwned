@@ -55,7 +55,8 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>                
+            <ScrollViewer>
+                <StackPanel>                
                 
                 <TextBlock Style="{StaticResource PhoneTextBlockBase}"
                            Foreground="#124961"
@@ -63,6 +64,7 @@
                 </TextBlock>
                 
                 <TextBox x:Name="Email"
+                         Foreground="#2b5766"                         
                          InputScope="EmailSmtpAddress" />
 
                 <TextBlock Margin="{StaticResource PhoneMargin}"
@@ -80,6 +82,7 @@
                 <!-- Responses -->
                 <ProgressBar 
                     Visibility="{Binding IsFetching, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    Foreground="White"
                     IsIndeterminate="True"
                     Margin="24"/>
                 <TextBlock 
@@ -140,6 +143,7 @@
                     </StackPanel>
                 </Border>
             </StackPanel>
+            </ScrollViewer>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
