@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -13,6 +14,22 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Minimized" Opacity="0.8">
+            <shell:ApplicationBar.MenuItems>
+                <micro:AppBarMenuItem
+                    Message="ViewAbout"
+                    Text="About"/>
+                <micro:AppBarMenuItem
+                    Message="ViewMoreApps"
+                    Text="More Apps"/>
+                <micro:AppBarMenuItem
+                    Message="ViewPrivacyPolicy"
+                    Text="Data Privacy"/>
+            </shell:ApplicationBar.MenuItems>            
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -34,8 +51,8 @@
             <StackPanel>                
                 
                 <TextBlock Style="{StaticResource PhoneTextBlockBase}"
-                           Foreground="{StaticResource PhoneSubtleBrush}">
-                    enter your email address
+                           Foreground="{StaticResource PhoneSubtleBrush}"
+                           Text="{Binding Path=LocalizedResources.MainPageEmailLabel, Source={StaticResource LocalizedStrings}}">                    
                 </TextBlock>
                 
                 <TextBox x:Name="Email" InputScope="EmailSmtpAddress" />
@@ -49,7 +66,7 @@
                 <Button x:Name="Check" Content="{Binding Path=LocalizedResources.MainPageCheckButtonText, Source={StaticResource LocalizedStrings}}"/>
                 
                 <!-- Responses -->
-                <ProgressBar 
+                <!--<ProgressBar 
                     Visibility="{Binding IsFetching, Converter={StaticResource BooleanToVisibilityConverter}}"
                     IsIndeterminate="True"
                     Margin="24"/>
@@ -58,9 +75,12 @@
                     TextWrapping="Wrap"
                     Style="{StaticResource PhoneTextTitle2Style}"
                     Foreground="{StaticResource PhoneSubtleBrush}"
-                    Margin="{StaticResource PhoneMargin}">Check if you have an account that has been compromised in a data breach</TextBlock>
-                
-                <Border Visibility="{Binding IsPwned, Converter={StaticResource BooleanToVisibilityConverter}}" Background="#FFB82626" Margin="{StaticResource PhoneMargin}">
+                    Margin="{StaticResource PhoneMargin}">Check if you have an account that has been compromised in a data breach</TextBlock>-->
+
+                <Border Visibility="{Binding IsPwned, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                        Background="#FFB82626" 
+                        Margin="{StaticResource PhoneMargin}" 
+                        micro:Message.Attach="[Tap] = [LearnMore]">
                     <StackPanel Margin="24">
                         <TextBlock
                             TextWrapping="Wrap"
@@ -70,7 +90,7 @@
                         <TextBlock
                             TextWrapping="Wrap"                           
                             FontFamily="{StaticResource PhoneFontFamilySemiLight}"
-                            FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                            FontSize="{StaticResource PhoneFontSizeLarge}"
                             Text="{Binding Path=LocalizedResources.ResponsePwnedBody, Source={StaticResource LocalizedStrings}}"/>
                         <TextBlock 
                             TextWrapping="Wrap"                           
@@ -78,6 +98,13 @@
                             FontSize="{StaticResource PhoneFontSizeExtraLarge}"
                             Margin="0,24,0,0"
                             Text="{Binding PwnedSites}" />
+                        <TextBlock
+                            FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                            FontSize="{StaticResource PhoneFontSizeMedium}" 
+                            TextAlignment="Right"    
+                            Margin="0,12,0,0"
+                            Foreground="#FFF3D585"
+                            Text="{Binding Path=LocalizedResources.MainPageLearnMore, Source={StaticResource LocalizedStrings}}"/>
                     </StackPanel>
                 </Border>
 

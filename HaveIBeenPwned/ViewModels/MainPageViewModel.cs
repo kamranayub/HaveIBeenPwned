@@ -5,17 +5,25 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using Microsoft.Phone.Reactive;
+using Microsoft.Phone.Tasks;
 
 namespace HaveIBeenPwned
 {
     public class MainPageViewModel : Screen
     {
+        private readonly IEventAggregator _events;
         private bool _isPwned;
         private bool _isSafe;
         private string _error;
         private string _email;
         private string _pwnedSites;
         private bool _isFetching;
+
+        public MainPageViewModel(IEventAggregator events) {
+            if (events == null) throw new ArgumentNullException("events");
+            _events = events;
+        }
 
         protected override void OnInitialize() {
             base.OnInitialize();
@@ -52,8 +60,6 @@ namespace HaveIBeenPwned
 
             IsFetching = true;
 
-            await Task.Delay(2000);
-
             var client = new HttpClient();
 
             var response = await client.GetAsync(new Uri("https://haveibeenpwned.com/api/breachedaccount/" + Email));
@@ -89,6 +95,26 @@ namespace HaveIBeenPwned
             {
                 Error = "Sorry, we couldn't check if you were pwned. Status: " + response.ReasonPhrase;
             }
+        }
+
+        public void LearnMore() {
+            _events.RequestTask<WebBrowserTask>(t => t.Uri = new Uri("http://haveibeenpwned.com/email/" + Email));
+        }
+
+        public void ViewPrivacyPolicy() {
+            _events.RequestTask<WebBrowserTask>(t => t.Uri = new Uri("http://haveibeenpwned.com/FAQs"));
+        }
+
+        public void ViewMoreApps() {
+            _events.RequestTask<MarketplaceSearchTask>(t =>
+            {
+                t.SearchTerms = "Kamran Ayub";
+                t.ContentType = MarketplaceContentType.Applications;
+            });
+        }
+
+        public void ViewAbout() {
+            _events.RequestTask<WebBrowserTask>(t => t.Uri = new Uri("http://haveibeenpwned.com/"));
         }
 
         public bool CanCheck

@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{591ae795-7b1e-4930-a1a1-b4ba4c47f13f}" Title="HaveIBeenPwned" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="HaveIBeenPwned author" Description="Sample description" Publisher="HaveIBeenPwned" PublisherID="{f2193383-7f61-4cf6-a2c8-fa1e90d37dde}">
+  <App xmlns="" ProductID="{591ae795-7b1e-4930-a1a1-b4ba4c47f13f}" Title="Have I Been Pwned?" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="HaveIBeenPwned author" Description="Check if you have an account that has been compromised in a data breach" Publisher="HaveIBeenPwned" PublisherID="{f2193383-7f61-4cf6-a2c8-fa1e90d37dde}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
-      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
-      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
-      <Capability Name="ID_CAP_SENSORS" />
-      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="Views/MainPage.xaml" />
@@ -19,7 +15,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>HaveIBeenPwned</Title>
+          <Title>HIBP</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>

@@ -140,11 +140,17 @@
   <data name="MainPageCheckButtonText" xml:space="preserve">
     <value>Have I Been Pwned?</value>
   </data>
+  <data name="MainPageEmailLabel" xml:space="preserve">
+    <value>enter your email address</value>
+  </data>
+  <data name="MainPageLearnMore" xml:space="preserve">
+    <value>tap to learn more</value>
+  </data>
   <data name="ResponsePwnedBody" xml:space="preserve">
     <value>You have been pwned on the following sites:</value>
   </data>
   <data name="ResponsePwnedHeader" xml:space="preserve">
-    <value>YES.</value>
+    <value>YES!</value>
   </data>
   <data name="ResponseSafeBody" xml:space="preserve">
     <value>Your passwords and accounts have not been breached.</value>

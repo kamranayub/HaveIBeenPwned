@@ -97,6 +97,24 @@ namespace HaveIBeenPwned.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to enter your email address.
+        /// </summary>
+        public static string MainPageEmailLabel {
+            get {
+                return ResourceManager.GetString("MainPageEmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tap to learn more.
+        /// </summary>
+        public static string MainPageLearnMore {
+            get {
+                return ResourceManager.GetString("MainPageLearnMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string MainPageTitle {
@@ -133,7 +151,7 @@ namespace HaveIBeenPwned.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to YES..
+        ///   Looks up a localized string similar to YES!.
         /// </summary>
         public static string ResponsePwnedHeader {
             get {
