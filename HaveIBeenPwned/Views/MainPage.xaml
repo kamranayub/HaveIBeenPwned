@@ -70,6 +70,7 @@
                 <TextBlock Margin="{StaticResource PhoneMargin}"
                            Foreground="#FFB82626"
                            FontWeight="Bold"
+                           TextWrapping="Wrap"
                            Visibility="{Binding Error, Converter={StaticResource ObjectToVisibilityConverter}}"
                            Text="{Binding Error}"/>
                 
