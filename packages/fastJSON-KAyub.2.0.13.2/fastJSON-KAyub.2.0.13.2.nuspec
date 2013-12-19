@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>fastJSON-KAyub</id>
+    <version>2.0.13.2</version>
+    <title>fastJSON-KAyub</title>
+    <authors>Mehdi Gholam,  Kamran Ayub</authors>
+    <owners>Mehdi Gholam,  Kamran Ayub</owners>
+    <licenseUrl>http://www.codeproject.com/info/cpol10.aspx</licenseUrl>
+    <projectUrl>http://github.com/kamranayub/fastJSON</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Smallest, fastest polymorphic JSON serializer; Kamran Ayub's fork of fastJSON @ v2.0.13. The revision number corresponds to the version of my fork.</description>
+    <releaseNotes>* Fix issue where CreateEnum would throw fatal exception if value wasn't found; defaults to first enum value
+      * Fix file version of WP7</releaseNotes>
+    <copyright>Copyright 2012 Mehdi Gholam</copyright>
+    <language />
+    <tags>JSON serializer C# .NET</tags>
+  </metadata>
+</package>
