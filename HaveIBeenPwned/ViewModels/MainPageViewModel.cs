@@ -5,10 +5,9 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Caliburn.Micro;
-using Microsoft.Phone.Reactive;
 using Microsoft.Phone.Tasks;
 
-namespace HaveIBeenPwned
+namespace HaveIBeenPwned.ViewModels
 {
     public class MainPageViewModel : Screen
     {
@@ -121,7 +120,7 @@ namespace HaveIBeenPwned
         {
             get
             {
-                return !String.IsNullOrWhiteSpace(Email);
+                return !String.IsNullOrWhiteSpace(Email) && Email.Contains("@");
             }
         }
 

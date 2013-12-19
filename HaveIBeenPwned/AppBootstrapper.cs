@@ -1,3 +1,5 @@
+using HaveIBeenPwned.ViewModels;
+
 namespace HaveIBeenPwned {
 	using System;
 	using System.Collections.Generic;
